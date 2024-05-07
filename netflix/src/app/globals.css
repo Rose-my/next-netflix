@@ -1,28 +1,112 @@
+@import url('https://fonts.cdnfonts.com/css/sf-pro-display');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+html {
+  width: 375px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0;
+
+  background-color: white;
+  /* font-size: 62.5%; */
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+::-webkit-scrollbar {
+  display: none;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+  font-family: 'SF Pro Display', sans-serif;
+  width: 100%;
+  height: 100%;
+
+  background-color: black;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+.children-container {
+  height: calc(100% - 37.5px);
+  overflow: scroll;
+}
+
+/* fonts는 className에 추가해서 사용하면 돼 ! */
+/* fonts */
+.fonts-bigtitle {
+  color: #fff;
+
+  text-align: center;
+  font-size: 26.748px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 20px; /* 74.771% */
+  letter-spacing: -0.073px;
+}
+
+.fonts-smalltitle {
+  color: #fff;
+
+  font-size: 20.921px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 15.643px; /* 74.771% */
+  letter-spacing: -0.057px;
+}
+
+.fonts-headline {
+  color: #fff;
+  text-align: center;
+
+  font-size: 17.197px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 30.447px; /* 177.049% */
+  letter-spacing: 0.762px;
+}
+
+.fonts-today {
+  color: #fff;
+
+  text-align: center;
+
+  font-size: 13.723px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 20px; /* 145.741% */
+  letter-spacing: -0.041px;
+}
+
+.fonts-btn {
+  color: #000;
+
+  text-align: center;
+  font-family: 'SF Pro Display';
+  font-size: 20.462px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 30px; /* 146.61% */
+  letter-spacing: -0.061px;
+}
+
+.fonts-mainicon {
+  color: #fff;
+
+  text-align: center;
+  font-size: 13.642px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px; /* 146.61% */
+  letter-spacing: -0.041px;
+}
+
+.fonts-footericon {
+  color: #fff;
+
+  text-align: center;
+  font-size: 0.5125rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.9rem; /* 370.732% */
+  letter-spacing: 0.01625rem;
 }
