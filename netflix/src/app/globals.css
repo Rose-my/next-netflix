@@ -27,7 +27,7 @@ body {
 }
 
 .children-container {
-  height: calc(100% - 37.5px);
+  height: calc(100% - 79.7px);
   overflow: scroll;
 }
 
@@ -100,13 +100,20 @@ body {
   letter-spacing: -0.041px;
 }
 
-.fonts-footericon {
+.fonts-footer-activeicon {
   color: #fff;
 
   text-align: center;
   font-size: 0.5125rem;
   font-style: normal;
   font-weight: 500;
-  line-height: 1.9rem; /* 370.732% */
-  letter-spacing: 0.01625rem;
+}
+
+.fonts-footer-inactiveicon {
+  color: #8c8787;
+
+  text-align: center;
+  font-size: 8.2px;
+  font-style: normal;
+  font-weight: 500;
 }
