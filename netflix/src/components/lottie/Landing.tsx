@@ -10,7 +10,7 @@ export default function Landing() {
   return (
     <Lottie
       animationData={netflixAnimation}
-      style={{ width: '100%' }}
+      style={{ width: '100%', marginTop: '140px' }}
       play
       loop={false}
       onComplete={() => router.push('/home')}
