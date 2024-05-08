@@ -5,7 +5,7 @@
 @tailwind utilities;
 
 html {
-  width: 375px;
+  width: 100%;
   height: 100%;
   margin: 0 auto;
   padding: 0;
@@ -40,8 +40,6 @@ body {
   font-size: 26.748px;
   font-style: normal;
   font-weight: 700;
-  line-height: 20px; /* 74.771% */
-  letter-spacing: -0.073px;
 }
 
 .fonts-smalltitle {
@@ -50,8 +48,6 @@ body {
   font-size: 20.921px;
   font-style: normal;
   font-weight: 700;
-  line-height: 15.643px; /* 74.771% */
-  letter-spacing: -0.057px;
 }
 
 .fonts-headline {
@@ -61,8 +57,6 @@ body {
   font-size: 17.197px;
   font-style: normal;
   font-weight: 400;
-  line-height: 30.447px; /* 177.049% */
-  letter-spacing: 0.762px;
 }
 
 .fonts-today {
@@ -73,8 +67,6 @@ body {
   font-size: 13.723px;
   font-style: normal;
   font-weight: 700;
-  line-height: 20px; /* 145.741% */
-  letter-spacing: -0.041px;
 }
 
 .fonts-btn {
@@ -93,8 +85,6 @@ body {
   font-size: 13.642px;
   font-style: normal;
   font-weight: 400;
-  line-height: 20px; /* 146.61% */
-  letter-spacing: -0.041px;
 }
 
 .fonts-footer-activeicon {
