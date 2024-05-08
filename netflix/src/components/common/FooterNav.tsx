@@ -19,7 +19,7 @@ export default function FooterNav() {
   if (pathname === '/') return null;
 
   return (
-    <div className="flex justify-evenly absolute bottom-[31.7px] w-[375px] h-12 pt-1.5 bg-footericon-black">
+    <section className="flex justify-evenly absolute bottom-[31.7px] w-[100%] h-12 pt-1.5 bg-footericon-black">
       <FooterBtn text="Home" isCurrentPage={pathname === '/home'} handleFooterBtn={() => router.push('/home')}>
         {pathname === '/home' ? <HomeActiveIcon /> : <HomeInactiveIcon />}
       </FooterBtn>
@@ -35,6 +35,6 @@ export default function FooterNav() {
       <FooterBtn text="More" isCurrentPage={pathname === '/more'}>
         <MoreIcon />
       </FooterBtn>
-    </div>
+    </section>
   );
 }
