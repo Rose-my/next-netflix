@@ -1,11 +1,12 @@
 import FooterNav from '@/components/common/FooterNav';
 import PlayBtn from '@/components/common/PlayBtn';
 import Wrapper from '@/components/home/Wrapper';
+import Header from '@/components/home/Header';
 
 export default function page() {
   return (
     <div className="pb-8">
-      <header className="fonts-headline">home페이지의 헤드라인</header>
+      <Header />
       <PlayBtn width={303}></PlayBtn>
       <PlayBtn width={110.62}></PlayBtn>
       <Wrapper title="Continue Watching for Emenalo" />
