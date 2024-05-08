@@ -1,8 +1,11 @@
 export { default as ComingsoonIcon } from './comingsoon.svg';
 export { default as DownloadIcon } from './download.svg';
-export { default as FindIcon } from './find.svg';
-export { default as HomeIcon } from './home.svg';
-export { default as MoreIcon } from './more.svg';
+export { default as HomeActiveIcon } from './homeActive.svg';
+export { default as HomeInactiveIcon } from './homeInactive.svg';
+export { default as SearchActiveIcon } from './searchActive.svg';
+export { default as SearchInactiveIcon } from './searchInactive.svg';
+export { default as InfoIcon } from './info.svg';
 export { default as NetflixIcon } from './netflix.svg';
 export { default as PlayIcon } from './play.svg';
 export { default as PlusIcon } from './plus.svg';
+export { default as MoreIcon } from './more.svg';
