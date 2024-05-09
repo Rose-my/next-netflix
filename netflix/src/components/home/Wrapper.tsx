@@ -49,10 +49,11 @@ export default function Wrapper(props: WrapperProps) {
         {movies.map((movie) => (
           <div key={movie.id} className="min-w-[103px] h-[161px] relative"> // fill 레이아웃 위한 relative 추가
             <Image
-              layout="fill"
+              fill
               src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
-              style={{ objectFit: 'cover' }} // 이미지 비율 유지를 위한 스타일 지정
               alt={movie.title}
+              style={{ objectFit: 'cover' }} // 이미지 비율 유지를 위한 스타일 지정
+              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw" // fill로 인한 sizes 추가.. 콘솔창 경고 없애기 위해..
             />
         </div>
         ))}
