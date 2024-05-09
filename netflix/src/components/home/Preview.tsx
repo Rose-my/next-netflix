@@ -29,7 +29,7 @@ export default function Preview() {
   }, []);
 
   return (
-    <section className="flex flex-col h-[145px] w-[100%] gap-[23px] pl-3 mb-[28px]">
+    <section className="flex flex-col h-[145px] w-[100%] gap-[23px] pl-3 mt-[43px] mb-[28px]">
       <p className=" fonts-bigtitle">Previews</p>
       <div className="flex gap-2 overflow-auto">
         {movies.map((movie) => (
