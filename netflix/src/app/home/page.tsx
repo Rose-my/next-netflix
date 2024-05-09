@@ -10,18 +10,11 @@ export default function page() {
       <Header />
       <Today />
       <Preview />
-      <Wrapper title="Continue Watching for Emenalo" />
-      <Wrapper title="Popular on Netflix" />
-      <Wrapper title="Trending Now" />
-      <Wrapper title="Top 10 in Nigeria Today" />
-      <Wrapper title="My List" />
-      <Wrapper title="African Movies" />
-      <Wrapper title="Nollywood Movies & TV" />
-      <Wrapper title="Netflix Originals" />
-      <Wrapper title="Watch It Again" />
-      <Wrapper title="New Releases" />
-      <Wrapper title="TV Thrillers & Mysteries" />
-      <Wrapper title="US TV Shows" />
+      <Wrapper title="Continue Watching for Emenalo" fetchType="topRated" />
+      <Wrapper title="Popular on Netflix" fetchType="popular" />
+      <Wrapper title="Trending Now" fetchType="trending" />
+      <Wrapper title="Top 10 in Nigeria Today" fetchType="topRated" />
+      <Wrapper title="Horror Movies" fetchType="horrorMovies" />
       <FooterNav />
     </div>
   );

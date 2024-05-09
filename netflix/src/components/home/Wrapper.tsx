@@ -6,6 +6,7 @@ import Image from 'next/image';
 
 interface WrapperProps {
   title: string;
+  fetchType: string; // 다른 종류의 영화 목록을 불러오기 위해 fetchType 추가
 }
 
 interface Movie {
@@ -15,14 +16,22 @@ interface Movie {
 }
 
 export default function Wrapper(props: WrapperProps) {
-  const { title } = props;
+  const { title, fetchType } = props;
   const [movies, setMovies] = useState<Movie[]>([]);
   
   useEffect(() => {
-    // 영화 정보를 불러오는 함수
     async function fetchMovies() {
       try {
-        const requests = await axios.get(request.fetchPopular); // 여기서는 인기 영화를 예시
+        let url = request.fetchPopular; // 기본값 설정
+        if (fetchType === 'trending') {
+          url = request.fetchTrending;
+        } else if (fetchType === 'topRated') {
+          url = request.fetchTopRated;
+        } else if (fetchType === 'horrorMovies') {
+          url = request.fetchHorrorMovies;
+        }
+        
+        const requests = await axios.get(url);
         setMovies(requests.data.results);
         return requests;
       } catch (error) {
@@ -31,19 +40,18 @@ export default function Wrapper(props: WrapperProps) {
     }
 
     fetchMovies();
-  }, []);
+  }, [fetchType]);
 
   return (
-    <section className="flex flex-col h-[191px] w-[100%] gap-3.5 pl-3">
+    <section className="flex flex-col h-[191px] w-[100%] gap-3.5 pl-3 mb-[22px]">
       <p className="ml-1 fonts-smalltitle">{title}</p>
       <div className="flex gap-2 overflow-auto">
         {movies.map((movie) => (
-          <div key={movie.id} className="min-w-[103px] h-[161px]">
+          <div key={movie.id} className="min-w-[103px] h-[161px] relative"> // fill 레이아웃 위한 relative 추가
             <Image
-              layout="fixed"
+              layout="fill"
               src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
-              height={161}
-              width={103}
+              style={{ objectFit: 'cover' }} // 이미지 비율 유지를 위한 스타일 지정
               alt={movie.title}
             />
         </div>
