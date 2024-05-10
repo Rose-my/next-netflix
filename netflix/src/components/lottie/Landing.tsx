@@ -13,7 +13,7 @@ export default function Landing() {
       style={{ display: 'flex', justifyContent: 'center', width: '100vw', height: '50vh', marginTop: '12rem' }}
       play
       loop={false}
-      // onComplete={() => router.push('/home')}
+      onComplete={() => router.push('/home')}
     />
   );
 }
