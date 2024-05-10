@@ -6,15 +6,9 @@ export default function Header() {
       <div className="flex w-[56.67px] h-[57px]">
         <LogoIcon />
       </div>
-      <p className="flex flex-col items-center w-[84.46px] mt-[12.18px] fonts-headline">
-        TV Shows
-      </p>
-      <p className="flex flex-col items-center w-[59.87px] mt-[12.18px] fonts-headline">
-        Movies
-      </p>
-      <p className="flex flex-col items-center w-[60.94px] mt-[12.18px] fonts-headline">
-        My List
-      </p>
+      <p className="flex flex-col items-center w-[84.46px] mt-[12.18px] fonts-headline">TV Shows</p>
+      <p className="flex flex-col items-center w-[59.87px] mt-[12.18px] fonts-headline">Movies</p>
+      <p className="flex flex-col items-center w-[60.94px] mt-[12.18px] fonts-headline">My List</p>
     </section>
   );
 }
