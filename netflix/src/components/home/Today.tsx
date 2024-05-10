@@ -17,7 +17,7 @@ interface Movie {
 export default function Today() {
   const [movies, setMovies] = useState<Movie[]>([]);
   const [randomMovie, setRandomMovie] = useState<Movie | null>(null); // 랜덤 영화 상태 추가
-  
+
   useEffect(() => {
     // 영화 정보를 불러오는 함수
     async function fetchMovies() {
@@ -41,11 +41,11 @@ export default function Today() {
           <img
             src={`https://image.tmdb.org/t/p/original${randomMovie.poster_path}`}
             alt={randomMovie.title}
-            className="w-full h-full object-cover" // 이미지 비율 유지 및 컨테이너 채우기
+            className="w-full h-full" // 이미지 비율 유지 및 컨테이너 채우기
           />
         )}
       </div>
-      <section className="flex flex-row justify-center gap-[5px]">
+      <section className="flex flex-row justify-center gap-[5px] pt-0.5">
         <TopNImg />
         <div className="fonts-today">Top 2 in Nigeria Today</div>
       </section>
@@ -54,12 +54,12 @@ export default function Today() {
           <PlusImg />
           <div className="fonts-mainicon">My List</div>
         </div>
-        <PlayBtn width={110.62}></PlayBtn>
+        <PlayBtn width={6.91406}></PlayBtn>
         <div className="flex flex-col items-center">
           <InfoImg />
           <div className="fonts-mainicon">Info</div>
         </div>
       </section>
     </div>
-  )
+  );
 }
