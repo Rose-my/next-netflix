@@ -10,7 +10,7 @@ export default function PlayBtn(props: PlayBtnProps) {
 
   return (
     <button
-      style={{ width: `${width}px` }}
+      style={{ width: `${width}rem` }}
       className={`flex justify-center items-center h-[45px] gap-4 rounded-md bg-btn-gray`}
       onClick={handlePlayBtn}>
       <PlayIcon />

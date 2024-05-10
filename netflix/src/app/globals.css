@@ -36,10 +36,10 @@ body {
 .fonts-bigtitle {
   color: #fff;
 
-  text-align: center;
   font-size: 26.748px;
   font-style: normal;
   font-weight: 700;
+  line-height: 20px;
 }
 
 .fonts-smalltitle {
@@ -48,6 +48,7 @@ body {
   font-size: 20.921px;
   font-style: normal;
   font-weight: 700;
+  line-height: 15.643px;
 }
 
 .fonts-headline {
@@ -57,6 +58,8 @@ body {
   font-size: 17.197px;
   font-style: normal;
   font-weight: 400;
+  line-height: 30.45px;
+  letter-spacing: 0.025em;
 }
 
 .fonts-today {
@@ -67,6 +70,7 @@ body {
   font-size: 13.723px;
   font-style: normal;
   font-weight: 700;
+  line-height: 1.25;
 }
 
 .fonts-btn {
@@ -85,6 +89,7 @@ body {
   font-size: 13.642px;
   font-style: normal;
   font-weight: 400;
+  line-height: 1.25;
 }
 
 .fonts-footer-activeicon {

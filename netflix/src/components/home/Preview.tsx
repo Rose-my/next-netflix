@@ -4,34 +4,20 @@ import axios from '@/api/axios';
 import request from '@/api/request';
 import Image from 'next/image';
 
-interface WrapperProps {
-  title: string;
-  fetchType: string; // 다른 종류의 영화 목록을 불러오기 위해 fetchType 추가
-}
-
 interface Movie {
   id: number;
   poster_path: string;
   title: string;
 }
 
-export default function Wrapper(props: WrapperProps) {
-  const { title, fetchType } = props;
+export default function Preview() {
   const [movies, setMovies] = useState<Movie[]>([]);
 
   useEffect(() => {
+    // 영화 정보를 불러오는 함수
     async function fetchMovies() {
       try {
-        let url = request.fetchPopular; // 기본값 설정
-        if (fetchType === 'trending') {
-          url = request.fetchTrending;
-        } else if (fetchType === 'topRated') {
-          url = request.fetchTopRated;
-        } else if (fetchType === 'horrorMovies') {
-          url = request.fetchHorrorMovies;
-        }
-
-        const requests = await axios.get(url);
+        const requests = await axios.get(request.fetchPopular);
         setMovies(requests.data.results);
         return requests;
       } catch (error) {
@@ -40,14 +26,14 @@ export default function Wrapper(props: WrapperProps) {
     }
 
     fetchMovies();
-  }, [fetchType]);
+  }, []);
 
   return (
-    <section className="flex flex-col h-[191px] w-[100%] gap-3.5 pl-3 mb-[22px]">
-      <p className="ml-1 fonts-smalltitle">{title}</p>
+    <section className="flex flex-col h-[145px] w-[100%] gap-[23px] pl-3 mt-[43px] mb-[28px]">
+      <p className=" fonts-bigtitle">Previews</p>
       <div className="flex gap-2 overflow-auto">
         {movies.map((movie) => (
-          <div key={movie.id} className="min-w-[103px] h-[161px] relative">
+          <div key={movie.id} className="min-w-[102px] h-[102px] relative rounded-full overflow-hidden">
             {' '}
             // fill 레이아웃 위한 relative 추가
             <Image
@@ -56,7 +42,6 @@ export default function Wrapper(props: WrapperProps) {
               alt="title"
               style={{ objectFit: 'cover' }} // 이미지 비율 유지를 위한 스타일 지정
               sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw" // fill로 인한 sizes 추가.. 콘솔창 경고 없애기 위해..
-              priority={true}
             />
           </div>
         ))}
