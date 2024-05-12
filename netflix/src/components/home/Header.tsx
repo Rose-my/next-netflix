@@ -2,7 +2,7 @@ import { LogoIcon } from '@/public/icon';
 
 export default function Header() {
   return (
-    <section className="fixed flex justify-between w-full h-[57px] mt-6 pl-4 pr-[21px]">
+    <section className="fixed flex justify-between w-full h-[57px] mt-6 pl-4 pr-[21px] z-10">
       <div className="flex w-[56.67px] h-[57px]">
         <LogoIcon />
       </div>
