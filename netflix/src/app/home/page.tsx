@@ -13,7 +13,7 @@ export default function page() {
       <Wrapper title="Continue Watching for Emenalo" fetchType="topRated" />
       <Wrapper title="Popular on Netflix" fetchType="popular" />
       <Wrapper title="Trending Now" fetchType="trending" />
-      <Wrapper title="Top 10 in Nigeria Today" fetchType="topRated" />
+      <Wrapper title="Top Rated" fetchType="topRated" />
       <Wrapper title="Horror Movies" fetchType="horrorMovies" />
       <FooterNav />
     </div>

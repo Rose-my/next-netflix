@@ -1,8 +1,8 @@
 'use client';
 import { useEffect, useState } from 'react';
 import axios from '@/api/axios';
-import request from '@/api/request';
 import Image from 'next/image';
+import request from '@/api/request';
 import TopNImg from '@/public/icon/topN.svg';
 import PlusImg from '@/public/icon/plus.svg';
 import PlayBtn from '@/components/common/PlayBtn';
@@ -16,7 +16,8 @@ interface Movie {
 
 export default function Today() {
   const [movies, setMovies] = useState<Movie[]>([]);
-  const [randomMovie, setRandomMovie] = useState<Movie | null>(null); // 랜덤 영화 상태 추가
+  const [randomIndex, setRandomIndex] = useState<number | null>(null); // 랜덤 영화 인덱스 상태 추가
+  const [randomMovie, setRandomMovie] = useState<Movie | null>(null); 
 
   useEffect(() => {
     // 영화 정보를 불러오는 함수
@@ -24,8 +25,9 @@ export default function Today() {
       try {
         const requests = await axios.get(request.fetchTopRated);
         setMovies(requests.data.results);
-        const randomIndex = Math.floor(Math.random() * requests.data.results.length); // 랜덤 인덱스 생성
-        setRandomMovie(requests.data.results[randomIndex]); // 랜덤 영화 선택
+        const newIndex = Math.floor(Math.random() * requests.data.results.length); // 랜덤 인덱스 생성
+        setRandomIndex(newIndex);
+        setRandomMovie(requests.data.results[newIndex]); // 랜덤 영화 선택
       } catch (error) {
         console.error(error);
       }
@@ -37,18 +39,23 @@ export default function Today() {
   return (
     <div>
       <div className="w-full h-[415px] relative">
-        {randomMovie && (
-          <img
-            src={`https://image.tmdb.org/t/p/original${randomMovie.poster_path}`}
-            alt={randomMovie.title}
-            className="w-full h-full absolute inset-0 object-cover" // 이미지를 컨테이너에 꽉 차게 하고 위치를 조정
-          />
-        )}
+        <div className="absolute inset-0">
+          {randomMovie && (
+            <Image
+              src={`https://image.tmdb.org/t/p/original${randomMovie.poster_path}`}
+              alt={randomMovie.title}
+              layout="fill"
+              objectFit="cover"
+            />
+          )}
+        </div>
         <div className="w-full h-full absolute bg-gradient-to-b from-transparent via-transparent to-black"></div>
       </div>
       <section className="flex flex-row justify-center gap-[5px] pt-0.5">
         <TopNImg />
-        <div className="fonts-today">Top 2 in Nigeria Today</div>
+        {randomIndex !== null && (
+          <div className="fonts-today">Top {randomIndex + 1} in Korea Today</div>
+        )}
       </section>
       <section className="flex justify-between w-full h-[45px] mt-[11px] pl-[54px] pr-[62px]">
         <div className="flex flex-col items-center">
