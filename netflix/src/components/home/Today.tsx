@@ -36,14 +36,15 @@ export default function Today() {
 
   return (
     <div>
-      <div className="w-full h-[415px] bg-gradient-to-b from-black via-black to-black">
-        {randomMovie && ( // 랜덤 영화가 있으면 이미지 출력
+      <div className="w-full h-[415px] relative">
+        {randomMovie && (
           <img
             src={`https://image.tmdb.org/t/p/original${randomMovie.poster_path}`}
             alt={randomMovie.title}
-            className="w-full h-full" // 이미지 비율 유지 및 컨테이너 채우기
+            className="w-full h-full absolute inset-0 object-cover" // 이미지를 컨테이너에 꽉 차게 하고 위치를 조정
           />
         )}
+        <div className="w-full h-full absolute bg-gradient-to-b from-transparent via-transparent to-black"></div>
       </div>
       <section className="flex flex-row justify-center gap-[5px] pt-0.5">
         <TopNImg />
