@@ -46,6 +46,7 @@ export default function Today() {
               src={`https://image.tmdb.org/t/p/original${randomMovie.poster_path}`}
               alt={randomMovie.title}
               style={{ objectFit: 'cover' }}
+              priority
             />
           )}
         </div>

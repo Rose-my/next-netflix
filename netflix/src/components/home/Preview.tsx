@@ -39,6 +39,7 @@ export default function Preview() {
               src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
               alt={movie.title}
               sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw" // fill로 인한 sizes 추가.. 콘솔창 경고 없애기 위해..
+              priority
             />
           </div>
         ))}
