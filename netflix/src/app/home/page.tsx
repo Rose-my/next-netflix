@@ -5,16 +5,26 @@ import Today from '@/components/home/Today';
 import Preview from '@/components/home/Preview';
 
 export default function page() {
+  const wrapperItems = [
+    { title: "Continue Watching for Emenalo", fetchType: "topRated" },
+    { title: "Popular on Netflix", fetchType: "popular" },
+    { title: "Trending Now", fetchType: "trending" },
+    { title: "Top Rated", fetchType: "topRated" },
+    { title: "Horror Movies", fetchType: "horrorMovies" },
+  ];
+
   return (
     <div className="pb-8">
       <Header />
       <Today />
       <Preview />
-      <Wrapper title="Continue Watching for Emenalo" fetchType="topRated" />
-      <Wrapper title="Popular on Netflix" fetchType="popular" />
-      <Wrapper title="Trending Now" fetchType="trending" />
-      <Wrapper title="Top Rated" fetchType="topRated" />
-      <Wrapper title="Horror Movies" fetchType="horrorMovies" />
+      {wrapperItems.map((item, index) => (
+        <Wrapper
+          key={index}
+          title={item.title}
+          fetchType={item.fetchType}
+        />
+      ))}
       <FooterNav />
     </div>
   );

@@ -42,10 +42,10 @@ export default function Today() {
         <div className="absolute inset-0">
           {randomMovie && (
             <Image
+              fill
               src={`https://image.tmdb.org/t/p/original${randomMovie.poster_path}`}
               alt={randomMovie.title}
-              layout="fill"
-              objectFit="cover"
+              style={{ objectFit: 'cover' }}
             />
           )}
         </div>
