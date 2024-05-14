@@ -33,15 +33,13 @@ export default function Preview() {
       <p className=" fonts-bigtitle">Previews</p>
       <div className="flex gap-2 overflow-auto">
         {movies.map((movie) => (
-          <div key={movie.id} className="min-w-[102px] h-[102px] relative rounded-full overflow-hidden">
-            {' '}
-            // fill 레이아웃 위한 relative 추가
+          <div key={movie.id} className="min-w-[102px] h-[102px] relative object-cover rounded-full overflow-hidden">
             <Image
               fill
               src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
-              alt="title"
-              style={{ objectFit: 'cover' }} // 이미지 비율 유지를 위한 스타일 지정
+              alt={movie.title}
               sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw" // fill로 인한 sizes 추가.. 콘솔창 경고 없애기 위해..
+              priority
             />
           </div>
         ))}

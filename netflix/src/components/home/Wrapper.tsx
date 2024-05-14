@@ -22,15 +22,16 @@ export default function Wrapper(props: WrapperProps) {
   useEffect(() => {
     async function fetchMovies() {
       try {
-        let url = request.fetchPopular; // 기본값 설정
-        if (fetchType === 'trending') {
-          url = request.fetchTrending;
-        } else if (fetchType === 'topRated') {
-          url = request.fetchTopRated;
-        } else if (fetchType === 'horrorMovies') {
-          url = request.fetchHorrorMovies;
-        }
-
+        const urls: { [key: string]: string } = {
+          trending: request.fetchTrending,
+          topRated: request.fetchTopRated,
+          horrorMovies: request.fetchHorrorMovies,
+          default: request.fetchPopular,
+        };
+  
+        // fetchType에 해당하는 URL을 가져오거나, 기본값으로 fetchPopular을 사용
+        const url = urls[fetchType] || urls.default;
+  
         const requests = await axios.get(url);
         setMovies(requests.data.results);
         return requests;
@@ -47,16 +48,13 @@ export default function Wrapper(props: WrapperProps) {
       <p className="ml-1 fonts-smalltitle">{title}</p>
       <div className="flex gap-2 overflow-auto">
         {movies.map((movie) => (
-          <div key={movie.id} className="min-w-[103px] h-[161px] relative">
-            {' '}
-            // fill 레이아웃 위한 relative 추가
+          <div key={movie.id} className="min-w-[103px] h-[161px] relative object-cover">
             <Image
               fill
               src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
               alt="title"
-              style={{ objectFit: 'cover' }} // 이미지 비율 유지를 위한 스타일 지정
               sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw" // fill로 인한 sizes 추가.. 콘솔창 경고 없애기 위해..
-              priority={true}
+              priority
             />
           </div>
         ))}
