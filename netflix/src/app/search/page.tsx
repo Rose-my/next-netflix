@@ -1,10 +1,26 @@
 import FooterNav from '@/components/common/FooterNav';
+import Search from '@/components/search/SearchBar';
+import Wrapper from '@/components/search/Wrapper';
 
 export default function page() {
+  // const wrapperItems = [
+  //   { title: 'Continue Watching for Emenalo', fetchType: 'topRated' },
+  //   { title: 'Popular on Netflix', fetchType: 'popular' },
+  //   { title: 'Trending Now', fetchType: 'trending' },
+  //   { title: 'Top Rated', fetchType: 'topRated' },
+  //   { title: 'Horror Movies', fetchType: 'horrorMovies' },
+  // ];
+
   return (
-    <section>
-      <p className="fonts-headline">search페이지의 컴포넌트들이 올 자리, 리액트의 pages폴더의 역할</p>
-      <div className="bg-white rounded-md fonts-btn h-[10px]">Play</div>
+    <section className="flex flex-col pt-11">
+      <Search />
+      <p className=" py-5 pl-2.5 fonts-bigtitle">Top Searches</p>
+      <section className="flex flex-col overflow-auto">
+        <Wrapper />
+        {/* {wrapperItems.map((item, index) => (
+        <Wrapper key={index} title={item.title} fetchType={item.fetchType} />
+      ))} */}
+      </section>
       <FooterNav />
     </section>
   );
