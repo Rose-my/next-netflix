@@ -109,3 +109,20 @@ body {
   font-style: normal;
   font-weight: 500;
 }
+
+.fonts-input {
+  color: #c4c4c4;
+
+  font-size: 15.213px;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.fonts-searched {
+  color: #fff;
+
+  text-align: center;
+  font-size: 14.722px;
+  font-style: normal;
+  font-weight: 400;
+}
