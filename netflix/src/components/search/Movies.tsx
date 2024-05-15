@@ -12,16 +12,15 @@ export default function Movies({ searchedMovies }: MoviesProps) {
       {searchedMovies &&
         searchedMovies.map((movie: MovieTypes) => (
           <div key={movie.id} className="flex bg-search-gray">
-            <div>
+            <article className={'w-[300px] h-[140px] overflow-hidden relative shrink-0 rounded-r-lg'}>
               <Image
-                src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
                 alt={movie.title}
-                className="rounded-br-lg"
-                width={200}
-                height={100}
+                src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               />
-            </div>
-
+            </article>
             <div className="flex justify-between items-center w-full px-4">
               <p className="fonts-searched">{movie.title}</p>
               <PlayCircleIcon />

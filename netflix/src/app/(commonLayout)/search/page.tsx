@@ -5,6 +5,7 @@ import FooterNav from '@/components/common/FooterNav';
 import SearchBar from '@/components/search/SearchBar';
 import Movies from '@/components/search/Movies';
 import { getSearchedMovies } from '@/api/getSearchedMovies';
+import Trending from '@/components/search/Trending';
 
 export default function Page() {
   const [searchedMovies, setSearchedMovies] = useState([]);
@@ -22,7 +23,7 @@ export default function Page() {
     <section className="flex flex-col pt-11">
       <SearchBar onSearch={handleSearch} />
       <p className="py-5 pl-2.5 fonts-bigtitle">Top Searches</p>
-      <Movies searchedMovies={searchedMovies} />
+      {searchedMovies.length > 0 ? <Movies searchedMovies={searchedMovies} /> : <Trending />}
       <FooterNav />
     </section>
   );
