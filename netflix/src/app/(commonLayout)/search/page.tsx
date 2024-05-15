@@ -20,10 +20,14 @@ export default function Page() {
   };
 
   return (
-    <section className="flex flex-col pt-11">
-      <SearchBar onSearch={handleSearch} />
-      <p className="py-5 pl-2.5 fonts-bigtitle">Top Searches</p>
-      {searchedMovies.length > 0 ? <Movies searchedMovies={searchedMovies} /> : <Trending />}
+    <section className="flex flex-col pt-11 h-full">
+      <div className="sticky top-0 z-20">
+        <SearchBar onSearch={handleSearch} />
+        <div className="py-5 pl-2.5 fonts-bigtitle bg-black">Top Searches</div>
+      </div>
+      <div className="flex-1 overflow-auto">
+        {searchedMovies.length > 0 ? <Movies searchedMovies={searchedMovies} /> : <Trending />}
+      </div>
       <FooterNav />
     </section>
   );
