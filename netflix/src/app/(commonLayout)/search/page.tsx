@@ -22,7 +22,6 @@ export default function Page() {
     <section className="flex flex-col pt-11">
       <SearchBar onSearch={handleSearch} />
       <p className="py-5 pl-2.5 fonts-bigtitle">Top Searches</p>
-      <div className="movies-container"></div>
       <Movies searchedMovies={searchedMovies} />
       <FooterNav />
     </section>
