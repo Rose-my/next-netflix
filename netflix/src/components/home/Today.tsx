@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { getTopRatedMovie } from '../../api/getMovies';
+import { getTopRatedMovie } from '@/api/getMovies';
 import TopNImg from '@/public/icon/topN.svg';
 import PlusImg from '@/public/icon/plus.svg';
 import PlayBtn from '@/components/common/PlayBtn';

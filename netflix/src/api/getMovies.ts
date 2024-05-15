@@ -35,6 +35,24 @@ export async function getUpComingMovie() {
   return upComingMovieData.results;
 }
 
+// trending 영화 데이터 반환하는 함수
+export async function getTrendingMovie() {
+  const url = `https://api.themoviedb.org/3/trending/all/week?api_key=${process.env.NEXT_PUBLIC_MOVIE_API_KEY}`;
+  const trendingMovieResponse = await fetch(url, { cache: 'no-store' });
+  const trendingMovieData = await trendingMovieResponse.json();
+  
+  return trendingMovieData.results;
+}
+
+// horror 영화 데이터 반환하는 함수
+export async function getHorrorMovie() {
+  const url = `https://api.themoviedb.org/3/discover/movie?with_genres=27?api_key=${process.env.NEXT_PUBLIC_MOVIE_API_KEY}`;
+  const horrorMovieResponse = await fetch(url, { cache: 'no-store' });
+  const horrorMovieData = await horrorMovieResponse.json();
+  
+  return horrorMovieData.results;
+}
+
 // 상세 페이지 영화 데이터 반환하는 함수
 export const getMovieDetails = async (id: string) => {
   const url = `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.NEXT_PUBLIC_MOVIE_API_KEY}&language=en-US`;

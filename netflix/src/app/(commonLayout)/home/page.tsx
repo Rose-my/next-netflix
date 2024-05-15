@@ -6,10 +6,11 @@ import Preview from '@/components/home/Preview';
 
 export default function page() {
   const wrapperItems = [
-    { title: "Continue Watching for Emenalo", fetchType: "topRated" },
+    { title: "Now Playing", fetchType: "nowPlaying" },
     { title: "Popular on Netflix", fetchType: "popular" },
-    { title: "Trending Now", fetchType: "trending" },
     { title: "Top Rated", fetchType: "topRated" },
+    { title: "Coming", fetchType: "coming" },
+    { title: "Trending Now", fetchType: "trending" },
     { title: "Horror Movies", fetchType: "horrorMovies" },
   ];
 
