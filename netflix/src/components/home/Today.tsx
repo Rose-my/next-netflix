@@ -1,35 +1,14 @@
-'use client';
-import { useEffect, useState } from 'react';
-import axios from '@/api/axios';
 import Image from 'next/image';
-import request from '@/api/request';
+import { getTopRatedMovie } from '../../api/getMovies';
 import TopNImg from '@/public/icon/topN.svg';
 import PlusImg from '@/public/icon/plus.svg';
 import PlayBtn from '@/components/common/PlayBtn';
 import InfoImg from '@/public/icon/info.svg';
-import { MovieTypes } from '@/types/Movie';
 
-export default function Today() {
-  const [movies, setMovies] = useState<MovieTypes[]>([]);
-  const [randomIndex, setRandomIndex] = useState<number | null>(null); // 랜덤 영화 인덱스 상태 추가
-  const [randomMovie, setRandomMovie] = useState<MovieTypes | null>(null); 
-
-  useEffect(() => {
-    // 영화 정보를 불러오는 함수
-    async function fetchMovies() {
-      try {
-        const requests = await axios.get(request.fetchTopRated);
-        setMovies(requests.data.results);
-        const newIndex = Math.floor(Math.random() * requests.data.results.length); // 랜덤 인덱스 생성
-        setRandomIndex(newIndex);
-        setRandomMovie(requests.data.results[newIndex]); // 랜덤 영화 선택
-      } catch (error) {
-        console.error(error);
-      }
-    }
-
-    fetchMovies();
-  }, []);
+export default async function Today() {
+  const moviesData = await getTopRatedMovie();
+  const randomIndex = Math.floor(Math.random() * moviesData.length); // 랜덤 인덱스 생성
+  const randomMovie = moviesData[randomIndex]; // 랜덤 영화 선택
 
   return (
     <div>
