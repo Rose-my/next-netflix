@@ -8,7 +8,7 @@ interface MoviesProps {
 
 export default function Movies({ searchedMovies }: MoviesProps) {
   return (
-    <div className="flex flex-col w-full gap-2 mb-6 movies-container">
+    <div className="flex flex-col w-full gap-2 mb-6">
       {searchedMovies &&
         searchedMovies.map((movie: MovieTypes) => (
           <div key={movie.id} className="flex bg-search-gray">
