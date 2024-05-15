@@ -23,7 +23,7 @@ export default function Page() {
     <section className="flex flex-col pt-11 h-full">
       <div className="sticky top-0 z-20">
         <SearchBar onSearch={handleSearch} />
-        <div className="py-5 pl-2.5 fonts-bigtitle bg-black">Top Searches</div>
+        <p className="py-5 pl-2.5 fonts-bigtitle">Top Searches</p>
       </div>
       <div className="flex-1 overflow-auto">
         {searchedMovies.length > 0 ? <Movies searchedMovies={searchedMovies} /> : <Trending />}
