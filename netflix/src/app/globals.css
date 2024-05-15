@@ -4,27 +4,28 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
+html,
+body {
   width: 100%;
   height: 100%;
   margin: 0 auto;
   padding: 0;
 
-  background-color: white;
-  /* font-size: 62.5%; */
+  background-color: black;
+  font-family: 'SF Pro Display', sans-serif;
 }
 
 ::-webkit-scrollbar {
   display: none;
 }
 
-body {
-  font-family: 'SF Pro Display', sans-serif;
+/* body {
+  font-size: 62.5%;
   width: 100%;
   height: 100%;
 
   background-color: black;
-}
+} */
 
 .children-container {
   height: calc(100% - 79.7px);
@@ -108,4 +109,22 @@ body {
   font-size: 8.2px;
   font-style: normal;
   font-weight: 500;
+}
+
+.fonts-input {
+  color: #c4c4c4;
+
+  font-size: 15.213px;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.fonts-searched {
+  color: #fff;
+
+  font-size: 14.722px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 30px; /* 203.774% */
+  letter-spacing: 0.751px;
 }

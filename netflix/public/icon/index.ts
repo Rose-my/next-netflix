@@ -10,3 +10,6 @@ export { default as PlayIcon } from './play.svg';
 export { default as PlusIcon } from './plus.svg';
 export { default as MoreIcon } from './more.svg';
 export { default as LogoIcon } from './logo.svg';
+export { default as SmallSearchIcon } from './smallSearch.svg';
+export { default as SmallXIcon } from './smallX.svg';
+export { default as PlayCircleIcon } from './playCircle.svg';

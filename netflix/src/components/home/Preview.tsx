@@ -3,15 +3,10 @@ import { useEffect, useState } from 'react';
 import axios from '@/api/axios';
 import request from '@/api/request';
 import Image from 'next/image';
-
-interface Movie {
-  id: number;
-  poster_path: string;
-  title: string;
-}
+import { MovieTypes } from '@/types/Movie';
 
 export default function Preview() {
-  const [movies, setMovies] = useState<Movie[]>([]);
+  const [movies, setMovies] = useState<MovieTypes[]>([]);
 
   useEffect(() => {
     // 영화 정보를 불러오는 함수
