@@ -3,21 +3,15 @@ import { useEffect, useState } from 'react';
 import axios from '@/api/axios';
 import request from '@/api/request';
 import Image from 'next/image';
-
+import { MovieTypes } from '@/types/Movie';
 interface WrapperProps {
   title: string;
   fetchType: string; // 다른 종류의 영화 목록을 불러오기 위해 fetchType 추가
 }
 
-interface Movie {
-  id: number;
-  poster_path: string;
-  title: string;
-}
-
 export default function Wrapper(props: WrapperProps) {
   const { title, fetchType } = props;
-  const [movies, setMovies] = useState<Movie[]>([]);
+  const [movies, setMovies] = useState<MovieTypes[]>([]);
 
   useEffect(() => {
     async function fetchMovies() {
@@ -28,10 +22,10 @@ export default function Wrapper(props: WrapperProps) {
           horrorMovies: request.fetchHorrorMovies,
           default: request.fetchPopular,
         };
-  
+
         // fetchType에 해당하는 URL을 가져오거나, 기본값으로 fetchPopular을 사용
         const url = urls[fetchType] || urls.default;
-  
+
         const requests = await axios.get(url);
         setMovies(requests.data.results);
         return requests;

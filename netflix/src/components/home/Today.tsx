@@ -7,17 +7,12 @@ import TopNImg from '@/public/icon/topN.svg';
 import PlusImg from '@/public/icon/plus.svg';
 import PlayBtn from '@/components/common/PlayBtn';
 import InfoImg from '@/public/icon/info.svg';
-
-interface Movie {
-  id: number;
-  poster_path: string;
-  title: string;
-}
+import { MovieTypes } from '@/types/Movie';
 
 export default function Today() {
-  const [movies, setMovies] = useState<Movie[]>([]);
+  const [movies, setMovies] = useState<MovieTypes[]>([]);
   const [randomIndex, setRandomIndex] = useState<number | null>(null); // 랜덤 영화 인덱스 상태 추가
-  const [randomMovie, setRandomMovie] = useState<Movie | null>(null); 
+  const [randomMovie, setRandomMovie] = useState<MovieTypes | null>(null); 
 
   useEffect(() => {
     // 영화 정보를 불러오는 함수
