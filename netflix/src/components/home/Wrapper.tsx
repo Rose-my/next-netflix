@@ -1,7 +1,8 @@
 'use client';
 import { useEffect, useState } from 'react';
-import { getNowPlayingMovie, getPopularMovie, getTopRatedMovie, getUpComingMovie, getTrendingMovie, getHorrorMovie } from '@/api/getMovies';
+import Link from "next/link";
 import Image from 'next/image';
+import { getNowPlayingMovie, getPopularMovie, getTopRatedMovie, getUpComingMovie, getTrendingMovie, getHorrorMovie } from '@/api/getMovies';
 import { MovieTypes } from '@/types/Movie';
 
 interface WrapperProps {
@@ -44,15 +45,21 @@ export default function Wrapper(props: WrapperProps) {
       <p className="ml-1 fonts-smalltitle">{title}</p>
       <div className="flex gap-2 overflow-auto">
         {movies.map((movie) => (
-          <div key={movie.id} className="min-w-[103px] h-[161px] relative object-cover">
-            <Image
-              fill
-              src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
-              alt={movie.title || 'title'} 
-              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw" 
-              priority
-            />
-          </div>
+          <Link 
+            key={movie.id} 
+            href={`/details/${movie.id}`} 
+            passHref
+          >
+            <div className="min-w-[103px] h-[161px] relative object-cover cursor-pointer">
+              <Image
+                fill
+                src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
+                alt={movie.title || 'title'} 
+                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw" 
+                priority
+              />
+            </div>
+          </Link>
         ))}
       </div>
     </section>
