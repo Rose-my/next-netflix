@@ -37,7 +37,7 @@ export default async function Today() {
           <PlusImg />
           <div className="fonts-mainicon">My List</div>
         </div>
-        <PlayBtn width={6.91406}></PlayBtn>
+        <PlayBtn width={6.91406} />
         <div className="flex flex-col items-center">
           <InfoImg />
           <div className="fonts-mainicon">Info</div>
