@@ -15,7 +15,7 @@ const Page = async ({ params }: DetailPageProps) => {
     <div>
       <div className="flex flex-col w-full">
         <DetailTop poster_path={movie.poster_path} />
-        <div className="pl-8 pr-8">
+        <div className="pt-3.5 pl-8 pr-8">
           <PlayBtn width={18.9375} />
           <p className="fonts-bigtitle mt-8">Previews</p>
           <DetailBottom overview={movie.overview} />
