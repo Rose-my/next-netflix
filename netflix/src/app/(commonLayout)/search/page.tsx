@@ -4,7 +4,7 @@ import { useState } from 'react';
 import FooterNav from '@/components/common/FooterNav';
 import SearchBar from '@/components/search/SearchBar';
 import Movies from '@/components/search/Movies';
-import { getSearchedMovies } from '@/api/getSearchedMovies';
+import { getSearchedMovies } from '@/api/getMovies';
 import Trending from '@/components/search/Trending';
 
 export default function Page() {
