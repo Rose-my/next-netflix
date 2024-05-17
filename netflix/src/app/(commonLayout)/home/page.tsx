@@ -6,12 +6,12 @@ import Preview from '@/components/home/Preview';
 
 export default function page() {
   const wrapperItems = [
-    { title: "Now Playing", fetchType: "nowPlaying" },
-    { title: "Popular on Netflix", fetchType: "popular" },
-    { title: "Top Rated", fetchType: "topRated" },
-    { title: "Coming", fetchType: "coming" },
-    { title: "Trending Now", fetchType: "trending" },
-    { title: "Horror Movies", fetchType: "horrorMovies" },
+    { title: 'Now Playing', fetchType: 'nowPlaying' },
+    { title: 'Popular on Netflix', fetchType: 'popular' },
+    { title: 'Top Rated', fetchType: 'topRated' },
+    { title: 'Coming', fetchType: 'coming' },
+    { title: 'Trending Now', fetchType: 'trending' },
+    { title: 'Horror Movies', fetchType: 'horrorMovies' },
   ];
 
   return (
@@ -19,13 +19,15 @@ export default function page() {
       <Header />
       <Today />
       <Preview />
-      {wrapperItems.map((item, index) => (
+      {/* {wrapperItems.map((item, index) => (
         <Wrapper
           key={index}
           title={item.title}
           fetchType={item.fetchType}
         />
-      ))}
+      ))} */}
+      {wrapperItems &&
+        wrapperItems.map((item, index) => <Wrapper key={index} title={item.title} fetchType={item.fetchType} />)}
       <FooterNav />
     </div>
   );
