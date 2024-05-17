@@ -9,17 +9,17 @@ export default function Header() {
       <div className="flex w-[56.67px] h-[57px]">
         <LogoIcon />
       </div>
-      {/* {menuItems.map((item) => (
+      {menuItems.map((item) => (
         <p key={item} className="flex flex-col items-center w-fit mt-[12.18px] fonts-headline">
           {item}
         </p>
-      ))} */}
-      {menuItems &&
+      ))}
+      {/* {menuItems &&
         menuItems.map((item) => (
           <p key={item} className="flex flex-col items-center w-fit mt-[12.18px] fonts-headline">
             {item}
           </p>
-        ))}
+        ))} */}
     </section>
   );
 }

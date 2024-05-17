@@ -19,15 +19,15 @@ export default function page() {
       <Header />
       <Today />
       <Preview />
-      {/* {wrapperItems.map((item, index) => (
+      {wrapperItems.map((item, index) => (
         <Wrapper
           key={index}
           title={item.title}
           fetchType={item.fetchType}
         />
-      ))} */}
-      {wrapperItems &&
-        wrapperItems.map((item, index) => <Wrapper key={index} title={item.title} fetchType={item.fetchType} />)}
+      ))}
+      {/* {wrapperItems &&
+        wrapperItems.map((item, index) => <Wrapper key={index} title={item.title} fetchType={item.fetchType} />)} */}
       <FooterNav />
     </div>
   );
