@@ -17,7 +17,6 @@ const config: Config = {
       colors: {
         'btn-gray': '#C4C4C4',
         'footericon-black': '#121212',
-        'text-white': '#ffffff',
         'search-gray': '#424242',
       },
     },

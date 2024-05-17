@@ -1,12 +1,13 @@
 'use client';
 import { useEffect, useState } from 'react';
-import axios from '@/api/axios';
-import request from '@/api/request';
+import Link from "next/link";
 import Image from 'next/image';
+import { getNowPlayingMovie, getPopularMovie, getTopRatedMovie, getUpComingMovie, getTrendingMovie, getHorrorMovie } from '@/api/getMovies';
 import { MovieTypes } from '@/types/Movie';
+
 interface WrapperProps {
   title: string;
-  fetchType: string; // 다른 종류의 영화 목록을 불러오기 위해 fetchType 추가
+  fetchType: string; 
 }
 
 export default function Wrapper(props: WrapperProps) {
@@ -16,19 +17,21 @@ export default function Wrapper(props: WrapperProps) {
   useEffect(() => {
     async function fetchMovies() {
       try {
-        const urls: { [key: string]: string } = {
-          trending: request.fetchTrending,
-          topRated: request.fetchTopRated,
-          horrorMovies: request.fetchHorrorMovies,
-          default: request.fetchPopular,
+        const movieFetchFunctions: { [key: string]: Function } = {
+          nowPlaying: getNowPlayingMovie,
+          popular: getPopularMovie,
+          topRated: getTopRatedMovie,
+          upComing: getUpComingMovie,
+          trending: getTrendingMovie,
+          horror: getHorrorMovie,
         };
 
-        // fetchType에 해당하는 URL을 가져오거나, 기본값으로 fetchPopular을 사용
-        const url = urls[fetchType] || urls.default;
+        // fetchType에 해당하는 함수를 호출하거나, 기본값으로 getPopularMovie을 사용
+        const fetchFunction = movieFetchFunctions[fetchType] || movieFetchFunctions.popular;
 
-        const requests = await axios.get(url);
-        setMovies(requests.data.results);
-        return requests;
+        const response = await fetchFunction();
+        setMovies(response);
+        return response;
       } catch (error) {
         console.error(error);
       }
@@ -42,15 +45,21 @@ export default function Wrapper(props: WrapperProps) {
       <p className="ml-1 fonts-smalltitle">{title}</p>
       <div className="flex gap-2 overflow-auto">
         {movies.map((movie) => (
-          <div key={movie.id} className="min-w-[103px] h-[161px] relative object-cover">
-            <Image
-              fill
-              src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
-              alt={movie.title || 'title'} // movie.title undefined일 경우 'title'로 대체
-              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw" // fill로 인한 sizes 추가.. 콘솔창 경고 없애기 위해..
-              priority
-            />
-          </div>
+          <Link 
+            key={movie.id} 
+            href={`/details/${movie.id}`} 
+            passHref
+          >
+            <div className="min-w-[103px] h-[161px] relative object-cover cursor-pointer">
+              <Image
+                fill
+                src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
+                alt={movie.title || 'title'} 
+                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw" 
+                priority
+              />
+            </div>
+          </Link>
         ))}
       </div>
     </section>
