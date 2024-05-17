@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import './globals.css';
-import FooterLine from '@/components/common/FooterLine';
 
 export const metadata: Metadata = {
   title: 'next-netflix',
