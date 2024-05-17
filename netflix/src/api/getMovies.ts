@@ -54,8 +54,8 @@ export async function getHorrorMovie() {
 }
 
 // 상세 페이지 영화 데이터 반환하는 함수
-export const getMovieDetails = async (id: string) => {
-  const url = `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.NEXT_PUBLIC_MOVIE_API_KEY}&language=en-US`;
+export const getMovieDetails = async (movieId: string) => {
+  const url = `https://api.themoviedb.org/3/movie/${movieId}?api_key=${process.env.NEXT_PUBLIC_MOVIE_API_KEY}&language=en-US`;
   const res = await fetch(url);
   const data = await res.json();
   

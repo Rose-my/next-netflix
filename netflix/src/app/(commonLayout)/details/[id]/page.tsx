@@ -1,21 +1,29 @@
+import DetailTop from '@/components/details/DetailTop';
+import DetailBottom from '@/components/details/DetailBottom';
+import PlayBtn from '@/components/common/PlayBtn';
 import FooterNav from '@/components/common/FooterNav';
-import Details from '@/components/details/details';
 import { getMovieDetails } from '@/api/getMovies';
+import { MovieTypes } from '@/types/Movie';
 
-interface PageProps {
-  params: {
-    slug: string; // 'params' 객체 내에 'slug'라는 문자열 타입의 필드가 있음을 명시
-  };
+interface DetailPageProps {
+  params: { id: string };
 }
+const Page = async ({ params }: DetailPageProps) => {
+  const movie: MovieTypes = await getMovieDetails(params.id);
 
-async function Page({ params }: PageProps) {
-  const data = await getMovieDetails(params.slug);
   return (
-    <>
-      <Details data={data} />
-      <FooterNav />
-    </>
+    <div>
+      <div className="flex flex-col w-full">
+        <DetailTop poster_path={movie.poster_path} />
+        <div className="pl-8 pr-8">
+          <PlayBtn width={18.9375} />
+          <p className="fonts-bigtitle mt-8">Previews</p>
+          <DetailBottom overview={movie.overview} />
+        </div>
+      </div>
+    <FooterNav />
+    </div>
   );
-}
+};
 
 export default Page;
