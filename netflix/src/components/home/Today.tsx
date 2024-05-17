@@ -7,7 +7,8 @@ import InfoImg from '@/public/icon/info.svg';
 
 export default async function Today() {
   const moviesData = await getTopRatedMovie();
-  const randomIndex = Math.floor(Math.random() * moviesData.length); // 랜덤 인덱스 생성
+  // const randomIndex = Math.floor(Math.random() * moviesData.length);
+  const randomIndex = Math.floor(Math.random()); // 랜덤 인덱스 생성
   const randomMovie = moviesData[randomIndex]; // 랜덤 영화 선택
 
   return (
@@ -28,9 +29,7 @@ export default async function Today() {
       </div>
       <section className="flex flex-row justify-center gap-[5px] pt-0.5">
         <TopNImg />
-        {randomIndex !== null && (
-          <div className="fonts-today">Top {randomIndex + 1} in Korea Today</div>
-        )}
+        {randomIndex !== null && <div className="fonts-today">Top {randomIndex + 1} in Korea Today</div>}
       </section>
       <section className="flex justify-between w-full h-[45px] mt-[11px] pl-[54px] pr-[62px]">
         <div className="flex flex-col items-center">
