@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import './globals.css';
+import FooterLine from '@/components/common/FooterLine';
 
 export const metadata: Metadata = {
   title: 'next-netflix',
@@ -14,7 +15,12 @@ export const viewport = 'width=device-width, initial-scale=1.0, maximum-scale=1.
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <section className="children-container">
+          {children}
+          <FooterLine />
+        </section>
+      </body>
     </html>
   );
 }
